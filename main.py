@@ -5,16 +5,16 @@ from money_machine import MoneyMachine
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money = MoneyMachine()
-ordering = True
+is_on = True
 
-while ordering:
+while is_on:
     order = input(f"What would you like? {menu.get_items()}: ")
     if order == "report":
         coffee_maker.report()
         money.report()
     elif order == "off":
         print("Shutting down...")
-        ordering = False
+        is_on = False
     else:
         drink = menu.find_drink(order)
         if coffee_maker.is_resource_sufficient(drink):
